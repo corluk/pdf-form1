@@ -3,6 +3,7 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus import SimpleDocTemplate, Paragraph
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase import pdfmetrics
+from io import BytesIO
 import os 
 def WriteBottomText():
     current_file_directory = os.path.dirname(__file__)  
@@ -12,7 +13,8 @@ def WriteBottomText():
     İşbu form; bu formda ismi ve imzası bulunan MÜYORBİR üyesinin, imzaladığı Yetki Belgesinin bir eki ve ayrılmaz bir parçasıdır. İş bu formda tanımı yapılan 
     icraların yorum haklarının sahibi bulunduğumu, bu icralardaki haklarımı yetki belgesine bağlı olarak MÜYORBİR'e devrettiğimi kabul ve beyan ederim.
     """
-    c = Canvas("bottom1.pdf",[307,68])
+    file = BytesIO()
+    c = Canvas(file ,[307,68])
     
     c.setFillColorRGB(.5,.5,.5)
     c.rect(0,0,307,68,0,1) 
@@ -34,8 +36,10 @@ def WriteBottomText():
     height = 68
     paragraph = Paragraph(text, style)
     w, h = paragraph.wrap(width, height)
-    text_x = x + (width - w) / 2
-    text_y = y + (height - h) / 2 + h 
+    text_x =  (307 -250)/2
+    text_y = h - 5
    
     paragraph.drawOn(c,text_x,text_y)
     c.save()
+    file.seek(0)
+    return file 

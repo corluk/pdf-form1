@@ -1,8 +1,8 @@
 from  reportlab.pdfgen.canvas import Canvas 
-
+from io import BytesIO
 def CreateAlbumSection(): 
-
-    canvas = Canvas("albumadı.pdf",[595,16])
+    file = BytesIO()
+    canvas = Canvas(file ,[595,16])
     canvas.saveState() 
     canvas.setFillColorRGB(0.5, 0.5, 0.5)
 
@@ -20,5 +20,7 @@ def CreateAlbumSection():
     canvas.translate(85.55, 0)
     canvas.drawCentredString(95.55,3,"some text in here ") 
     canvas.save()
+    file.seek(0)
+    return file 
  
     
