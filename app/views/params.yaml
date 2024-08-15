@@ -1,0 +1,51 @@
+﻿Page: 
+  margins : 
+    x : 17.5 
+    y : 770 
+  fields: 
+    album_title: 
+      legend :
+        x : 17.5 
+        y : 95 
+        w : 97  
+        h : 20 
+      field: 
+        x : 114 
+        y : 95 
+        w : 244.35 
+        h : 20 
+    label: 
+      legend: 
+        x : 357
+        y : 95 
+        w : 93.30
+        h : 20 
+      field :
+        x : 451.5
+        y : 95 
+        w : 150.27
+        h : 20 
+    release_date: 
+      legend:
+        x: 601.94 
+        y: 95 
+        w : 77.23
+        h : 20
+      field: 
+        x: 980
+        y : 95 
+        w : 90 
+        h : 20 
+  track: 
+      y1 : 114 
+      trackno:
+        x : 17.5 
+        w : 15.35
+        h: 173.6
+      fields: 
+        track_name: 
+            legend: 
+              w : 80 
+              h : 20 
+              x : 15.35 + 17.50
+              y : 174.5 - 114 

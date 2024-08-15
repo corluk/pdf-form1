@@ -5,6 +5,7 @@ from .header import CreateAlbumSection
 from .bottom1 import WriteBottomText
 from pypdf import PdfReader, PdfWriter  , PageObject
 from io import BytesIO
+from .views.track import RenderTrackNo
 def createBaseA4(): 
     file = BytesIO()
     c = Canvas(file,A4) 
@@ -74,4 +75,13 @@ def test_merge() :
     output_fp.seek(0)
     with open("render1.pdf","wb") as f: 
         f.write(output_fp.read())
-        
+
+
+def test_track():
+    canvas = Canvas("test_track1.pdf",A4)
+    RenderTrackNo(canvas=canvas,trackNo=0)
+    RenderTrackNo(canvas=canvas,trackNo=1)
+    RenderTrackNo(canvas=canvas,trackNo=2)
+    #RenderTrackNo(canvas=canvas,trackNo=4)
+    #RenderTrackNo(canvas=canvas,trackNo=5)
+    canvas.save()

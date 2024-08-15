@@ -9,6 +9,8 @@ def CreateAlbumSection():
     canvas.rect(13.10,0,72.45,15,1,1)
     canvas.setFillColorRGB(0,0,0)
     canvas.translate(13.10,0)
+  
+    
     canvas.drawCentredString(36,3,"ALBÜM ADI")
     
     
@@ -18,7 +20,11 @@ def CreateAlbumSection():
     canvas.rect(85.55,0,183.11,15,1,1)
     canvas.setFillColorRGB(0,0,0) 
     canvas.translate(85.55, 0)
-    canvas.drawCentredString(95.55,3,"some text in here ") 
+    canvas.setFont("Helvetica", 12)
+    form = canvas.acroForm
+    form.textfield(name="header_album_title", width=72.45,x=13.10,y=0,tooltip="albüm adı")
+   
+    #canvas.drawCentredString(95.55,3,"some text in here ") 
     canvas.save()
     file.seek(0)
     return file 
