@@ -79,9 +79,10 @@ def test_merge() :
 
 def test_track():
     canvas = Canvas("test_track1.pdf",A4)
-    RenderTrackNo(canvas=canvas,trackNo=0)
     RenderTrackNo(canvas=canvas,trackNo=1)
     RenderTrackNo(canvas=canvas,trackNo=2)
+    RenderTrackNo(canvas=canvas,trackNo=3)
+    RenderTrackNo(canvas=canvas,trackNo=4)
     #RenderTrackNo(canvas=canvas,trackNo=4)
     #RenderTrackNo(canvas=canvas,trackNo=5)
     canvas.save()
