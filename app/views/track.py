@@ -23,11 +23,16 @@ def RenderTrackNo(canvas:Canvas,trackNo:int):
     wh = [TrackViewConstants.MarginX.value,TrackViewConstants.HeightEach.value]
     canvas.rect(xy[0],xy[1],wh[0],wh[1],1,1)
     #canvas.drawString(xy[0],xy[1],"here text ")
-    #canvas.rotate(90)
+    canvas.rotate(90)
     
     canvas.setFillColor(colors.red)
-    
-    canvas.drawCentredString(xy[0] + 10 , xy[1],str(trackNo) +"."+" Eser")
+    # this will Y point 
+    # from the point of shift to total heigth / 2  
+    textMiddleX = xy[1] + (wh[1]/2)
+    # X point reversed to Y 
+    textMiddleY = xy[0] + (wh[0]/2)
+    canvas.drawCentredString(textMiddleY , textMiddleX, "y:" +  str(textMiddleY) +"."+ " x: " + str(textMiddleX))
+    canvas.resetTransforms()
     # TODO rotate text 90 on center 
     
  
